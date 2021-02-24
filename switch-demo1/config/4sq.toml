@@ -1,0 +1,38 @@
+[nats]
+broker-url = "nats-server"
+broker-port = 4222
+
+[switch]
+name = "80m_4sq"
+type = "dummy_switch"
+
+[80m_4sq]
+name = "4-SQUARE 80m" # name of the stackmatch
+index = 7 # order (helper for consistent visualization)
+exclusive = true
+ports = ["sw"]
+
+[sw]
+name = "4SQ"
+index = 0
+exclusive = true
+terminals = ["sw_port1", "sw_port2", "sw_port3", "sw_port4"]
+
+# Terminal (corresponds to the buttons you would see in the UI)
+[sw_port1]
+name = "NA"
+index = 1 #order
+
+# Terminal
+[sw_port2]
+name = "EU"
+index = 2
+
+# Terminal
+[sw_port3]
+name = "VK"
+index = 3
+
+[sw_port4]
+name = "SA"
+index = 4

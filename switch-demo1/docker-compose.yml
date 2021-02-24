@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  bandswitch: &switch
+    restart: always
+    build:
+      context: .
+      dockerfile: ./compose/switch/Dockerfile
+      args:
+        - release=v0.1.2
+        - arch=amd64
+        - os=linux
+    depends_on:
+      - nats-server
+    links:
+      - nats-server:nats-server
+    command: remoteSwitch server nats --config=bandswitch.toml
+
+  10m:
+    <<: *switch
+    command: remoteSwitch server nats --config=sm10m.toml
+
+  15m:
+    <<: *switch
+    command: remoteSwitch server nats --config=sm15m.toml
+
+  20m:
+    <<: *switch
+    command: remoteSwitch server nats --config=sm20m.toml
+
+  40m:
+    <<: *switch
+    command: remoteSwitch server nats --config=sw40m.toml
+
+  80m:
+    <<: *switch
+    command: remoteSwitch server nats --config=sw80m.toml
+
+  4sq:
+    <<: *switch
+    command: remoteSwitch server nats --config=4sq.toml
+
+  web:
+    <<: *switch
+    command: remoteSwitch web -w 0.0.0.0 -k 4002 -u nats-server
+    ports:
+      - "4002:4002"
+
+  nats-server:
+    image: nats:2
+    restart: always

@@ -1,0 +1,39 @@
+##################### IMPORTANT ###############################
+## DON'T USE THIS EXAMPLE FILE SINCE IT FAKES A STACKMATCH
+## There are actually real stackmatch implementations available
+##################### IMPORTANT ###############################
+
+[nats]
+broker-url = "nats-server"
+broker-port = 4222
+
+[switch]
+name = "10m_stackmatch"
+type = "dummy_switch"
+
+[10m_stackmatch]
+name = "Stackmatch 10m" # name of the stackmatch
+index = 2 # order (helper for consistent visualization)
+exclusive = false
+ports = ["sm"]
+
+[sm]
+name = "SM"
+index = 0
+exclusive = false
+terminals = ["sm_port1", "sm_port2", "sm_port3"]
+
+# Terminal (corresponds to the buttons you would see in the UI)
+[sm_port1]
+name = "OB16-3"
+index = 1 #order
+
+# Terminal
+[sm_port2]
+name = "5/5 NA"
+index = 2
+
+# Terminal
+[sm_port3]
+name = "5/5 JA"
+index = 3
