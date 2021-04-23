@@ -46,19 +46,19 @@ terminals = ["a_160m", "a_80m", "a_40m", "a_20m", "a_15m", "a_10m", "a_6m", "a_W
 # Second port for myBandswitch
 [port_b]
 name = "STN2"
-index = 1
+index = 2
 exclusive = true
 terminals = ["b_160m", "b_80m", "b_40m", "b_20m", "b_15m", "b_10m", "b_6m", "b_WARC"]
 
 [port_c]
 name = "STN3"
-index = 2
+index = 3
 exclusive = true
 terminals = ["c_160m", "c_80m", "c_40m", "c_20m", "c_15m", "c_10m", "c_6m", "c_WARC"]
 
 [port_d]
 name = "STN4"
-index = 3
+index = 4
 exclusive = true
 terminals = ["d_160m", "d_80m", "d_40m", "d_20m", "d_15m", "d_10m", "d_6m", "d_WARC"]
 
