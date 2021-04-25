@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./compose/switch/Dockerfile
       args:
-        - release=v0.1.2
+        - release=v0.2.1
         - arch=amd64
         - os=linux
     depends_on:
